@@ -1,0 +1,12 @@
+baseURL = "https://til.flagzeta.org/"
+languageCode = "en-us"
+title = "Today I Learnt..."
+
+# Build static site to /docs folder so Github pages can serve it.
+publishDir = "../docs"
+             
+# Serve statics from above Hugosite root.
+staticDir = ["../static/"]
+
+# Use really small summaries...
+summaryLength = 8

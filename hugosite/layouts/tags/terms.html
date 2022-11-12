@@ -1,0 +1,30 @@
+{{ define "title" }}
+    All tags — Today I Learnt — Federico Marani
+{{ end }}
+
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+
+    <p>Yep, a tag cloud.</p>
+
+    {{ $tags := $.Data.Terms.Alphabetical }}
+
+    <div id="tagcloud">
+        {{ range $tags }}
+        <a href="{{ .Page.Permalink }}" class="font_size_{{ .Count }}" >{{ replace .Page.Title " " "&nbsp;" | markdownify }}</a>
+        {{ end }}
+    </div>
+
+    <p>And here's all posts broken down by tag:</p>
+
+    {{ range $tags }}
+        <h3>{{ .Page.Title | markdownify }}</h3>
+        {{ partial "posts.html" .Pages }}
+    {{ end }}
+
+    <p>
+        Browse all posts <a href="/posts/">by month</a>.
+    </p>
+
+{{ end }}
+

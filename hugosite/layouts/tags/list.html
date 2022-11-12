@@ -1,0 +1,17 @@
+{{ define "title" }}
+    {{ .Title }} — Today I Learnt — Federico Marani
+{{ end }}
+
+{{ define "main" }}
+    <h1>Things learnt about {{ .Title }}</h1>
+
+    {{ .Content }}
+
+    {{ partial "posts.html" .Pages }}
+
+    <p>
+        Browse <a href="/tags/">all tags</a> or <a href="/posts/">all posts</a>.
+    </p>
+
+{{ end }}
+
