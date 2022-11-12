@@ -6,10 +6,20 @@
     <description>Recent content on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 12 Nov 2022 16:02:19 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/index.xml" rel="self" type="application/rss+xml" />
     
 
+    
+    <item>
+      <title>Posts</title>
+      <link>https://til.flagzeta.org/posts/</link>
+      <pubDate>Sat, 12 Nov 2022 16:02:19 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/posts/</guid>
+      <description></description>
+    </item>
     
 
   </channel>

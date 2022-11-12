@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eks - Today I Learnt...</title>
+    <link>https://til.flagzeta.org/tags/eks/</link>
+    <description>Recent content in eks on Today I Learnt...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Nov 2022 16:02:19 +0100</lastBuildDate>
+    
+	<atom:link href="https://til.flagzeta.org/tags/eks/index.xml" rel="self" type="application/rss+xml" />
+    
+
+    
+    <item>
+      <title>How to include AWS-specific info when using kubectl get nodes</title>
+      <link>https://til.flagzeta.org/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/</link>
+      <pubDate>Sat, 12 Nov 2022 16:02:19 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/</guid>
+      <description>The standard configuration when using kubectl get nodes is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using.</description>
+    </item>
+    
+
+  </channel>
+</rss>

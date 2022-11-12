@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="
+    The standard configuration when using kubectl get nodes is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. ...
+">
+
+        <link rel="shortcut icon" href="https://til.flagzeta.org/favicon.ico">
+
+        
+            
+
+        
+        <link rel="stylesheet" href="https://til.flagzeta.org/css/main.min.css">
+
+        
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://til.flagzeta.org/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/" />
+<meta property="og:title" content="TIL How to include AWS-specific info when using kubectl get nodes — Federico Marani" />
+<meta property="og:description" content="The standard configuration when using kubectl get nodes is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. [Reading time: 1 minute]" />
+
+
+<meta property="og:image" content="https://i.imgur.com/buBLoi9.png" />
+
+
+        <title>
+    TIL How to include AWS-specific info when using kubectl get nodes — Federico Marani
+</title>
+
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4500T4RE03"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {dataLayer.push(arguments); }
+
+            
+            window['ga-disable-G-00'] = location.hostname != "til.flagzeta.org"
+            gtag('js', new Date());
+            gtag('config', 'G-00');
+        </script>
+
+    </head>
+
+    <body>
+        
+            <header id="banner">
+                <h2><a href="https://til.flagzeta.org/">Today I Learnt...</a></h2>
+            </header>
+        
+
+        <main id="content">
+            
+    <article>
+        <header id="post-header">
+            <div id="date_sentence">
+                On <time>November 12th, 2022</time>, <a href="https://flagzeta.org">I</a> learnt ...
+            </div>
+            <h1>How to include AWS-specific info when using kubectl get nodes</h1>
+        </header><p>The standard configuration when using <code>kubectl get nodes</code> is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. At our work we are big users of AWS, and we are running many EKS clusters. Clusters with multiple nodegroups, each one with different launch template which brings nodes up with different security groups attached.</p>
+<p>Sometimes it is difficult to print all this information. <code>kubectl</code> has a <code>custom-columns</code> output that is helpful in the case you want to print AWS specific information in the table view. Here&rsquo;s an example:</p>
+<pre tabindex="0"><code>&gt; k get nodes -o custom-columns=NAME:.metadata.name,INSTANCE_TYPE:&quot;.metadata.labels.node\.kubernetes\.io/instance-type&quot;,EKS_NODEGROUP:&quot;.metadata.labels.eks\.amazonaws\.com/nodegroup&quot;,READY:&quot;.status.conditions[?(@.reason=='KubeletReady')].status&quot;,CREATED_AT:&quot;.metadata.creationTimestamp&quot;
+Kubeconfig user entry is using deprecated API version client.authentication.k8s.io/v1alpha1. Run 'aws eks update-kubeconfig' to update.
+NAME                                            INSTANCE_TYPE   EKS_NODEGROUP                              READY   CREATED_AT
+ip-10-0-115-000.eu-central-1.compute.internal   m5.2xlarge      br_privileged-20220525160725365900000001   True    2022-11-12T11:06:45Z
+ip-10-0-116-000.eu-central-1.compute.internal   m5.large        br_default-20220525160725393100000003      True    2022-11-07T10:31:33Z
+ip-10-0-118-00.eu-central-1.compute.internal    m5.large        br_default-20220525160725393100000003      True    2022-05-25T16:08:34Z
+ip-10-0-119-000.eu-central-1.compute.internal   m5.2xlarge      br_privileged-20220525160725365900000001   True    2022-11-12T10:37:09Z
+ip-10-0-124-000.eu-central-1.compute.internal   m5.large        br_default-20220525160725393100000003      True    2022-10-28T03:56:19Z
+...
+</code></pre><p>The above command prints instance types and node groups. More data is injected by AWS as a node label. You can decide what to pull by picking it from the <code>kubectl describe node</code> output:</p>
+<pre tabindex="0"><code>Name:               ip-10-0-116-000.eu-central-1.compute.internal
+Roles:              &lt;none&gt;
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=m5.large
+                    beta.kubernetes.io/os=linux
+                    eks.amazonaws.com/capacityType=ON_DEMAND
+                    eks.amazonaws.com/nodegroup=br_default-20220525160725393100000003
+                    eks.amazonaws.com/nodegroup-image=ami-0246e36000000000
+                    eks.amazonaws.com/sourceLaunchTemplateId=lt-0f95aab78b699788c
+                    eks.amazonaws.com/sourceLaunchTemplateVersion=1
+                    failure-domain.beta.kubernetes.io/region=eu-central-1
+                    failure-domain.beta.kubernetes.io/zone=eu-central-1a
+                    k8s.io/cloud-provider-aws=be6c0a9c1e11a4070ca9dab664912000
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=ip-10-0-116-000.eu-central-1.compute.internal
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=m5.large
+                    topology.kubernetes.io/region=eu-central-1
+                    topology.kubernetes.io/zone=eu-central-1a
+...
+</code></pre></article>
+
+        </main>
+
+        
+    <footer id="footer">
+        
+        
+
+        
+
+            
+
+            
+                
+
+            
+
+        
+
+            
+
+            
+                
+
+            
+
+        
+
+            
+
+            
+                
+
+            
+
+        
+
+        
+        
+        
+    </footer>
+
+
+        
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script>
+        
+
+        
+    </script>
+
+    </body>
+</html>
