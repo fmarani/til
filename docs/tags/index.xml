@@ -6,11 +6,29 @@
     <description>Recent content in Tags on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Nov 2022 16:02:19 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 16 Nov 2022 12:38:36 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
 
+    
+    <item>
+      <title>argocd</title>
+      <link>https://til.flagzeta.org/tags/argocd/</link>
+      <pubDate>Wed, 16 Nov 2022 12:38:36 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/argocd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl</title>
+      <link>https://til.flagzeta.org/tags/kubectl/</link>
+      <pubDate>Wed, 16 Nov 2022 12:38:36 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/kubectl/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>eks</title>
@@ -18,15 +36,6 @@
       <pubDate>Sat, 12 Nov 2022 16:02:19 +0100</pubDate>
       
       <guid>https://til.flagzeta.org/tags/eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubectl</title>
-      <link>https://til.flagzeta.org/tags/kubectl/</link>
-      <pubDate>Sat, 12 Nov 2022 16:02:19 +0100</pubDate>
-      
-      <guid>https://til.flagzeta.org/tags/kubectl/</guid>
       <description></description>
     </item>
     

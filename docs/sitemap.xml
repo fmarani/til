@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://til.flagzeta.org/tags/argocd/</loc>
+    <lastmod>2022-11-16T12:38:36+01:00</lastmod>
+  </url><url>
+    <loc>https://til.flagzeta.org/tags/kubectl/</loc>
+    <lastmod>2022-11-16T12:38:36+01:00</lastmod>
+  </url><url>
+    <loc>https://til.flagzeta.org/posts/</loc>
+    <lastmod>2022-11-16T12:38:36+01:00</lastmod>
+  </url><url>
+    <loc>https://til.flagzeta.org/tags/</loc>
+    <lastmod>2022-11-16T12:38:36+01:00</lastmod>
+  </url><url>
+    <loc>https://til.flagzeta.org/posts/that-you-can-use-kubectl-to-viewpatch-argocd-running-parameters/</loc>
+    <lastmod>2022-11-16T12:38:36+01:00</lastmod>
+  </url><url>
+    <loc>https://til.flagzeta.org/</loc>
+    <lastmod>2022-11-16T12:38:36+01:00</lastmod>
+  </url><url>
     <loc>https://til.flagzeta.org/tags/eks/</loc>
     <lastmod>2022-11-12T16:02:19+01:00</lastmod>
   </url><url>
     <loc>https://til.flagzeta.org/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/</loc>
     <lastmod>2022-11-12T16:02:19+01:00</lastmod>
   </url><url>
-    <loc>https://til.flagzeta.org/tags/kubectl/</loc>
-    <lastmod>2022-11-12T16:02:19+01:00</lastmod>
-  </url><url>
     <loc>https://til.flagzeta.org/tags/kubernetes/</loc>
-    <lastmod>2022-11-12T16:02:19+01:00</lastmod>
-  </url><url>
-    <loc>https://til.flagzeta.org/posts/</loc>
-    <lastmod>2022-11-12T16:02:19+01:00</lastmod>
-  </url><url>
-    <loc>https://til.flagzeta.org/tags/</loc>
-    <lastmod>2022-11-12T16:02:19+01:00</lastmod>
-  </url><url>
-    <loc>https://til.flagzeta.org/</loc>
     <lastmod>2022-11-12T16:02:19+01:00</lastmod>
   </url><url>
     <loc>https://til.flagzeta.org/categories/</loc>

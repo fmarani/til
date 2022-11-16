@@ -61,7 +61,7 @@
             <h1>How to include AWS-specific info when using kubectl get nodes</h1>
         </header><p>The standard configuration when using <code>kubectl get nodes</code> is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. At our work we are big users of AWS, and we are running many EKS clusters. Clusters with multiple nodegroups, each one with different launch template which brings nodes up with different security groups attached.</p>
 <p>Sometimes it is difficult to print all this information. <code>kubectl</code> has a <code>custom-columns</code> output that is helpful in the case you want to print AWS specific information in the table view. Here&rsquo;s an example:</p>
-<pre tabindex="0"><code>&gt; k get nodes -o custom-columns=NAME:.metadata.name,INSTANCE_TYPE:&quot;.metadata.labels.node\.kubernetes\.io/instance-type&quot;,EKS_NODEGROUP:&quot;.metadata.labels.eks\.amazonaws\.com/nodegroup&quot;,READY:&quot;.status.conditions[?(@.reason=='KubeletReady')].status&quot;,CREATED_AT:&quot;.metadata.creationTimestamp&quot;
+<pre><code>&gt; k get nodes -o custom-columns=NAME:.metadata.name,INSTANCE_TYPE:&quot;.metadata.labels.node\.kubernetes\.io/instance-type&quot;,EKS_NODEGROUP:&quot;.metadata.labels.eks\.amazonaws\.com/nodegroup&quot;,READY:&quot;.status.conditions[?(@.reason=='KubeletReady')].status&quot;,CREATED_AT:&quot;.metadata.creationTimestamp&quot;
 Kubeconfig user entry is using deprecated API version client.authentication.k8s.io/v1alpha1. Run 'aws eks update-kubeconfig' to update.
 NAME                                            INSTANCE_TYPE   EKS_NODEGROUP                              READY   CREATED_AT
 ip-10-0-115-000.eu-central-1.compute.internal   m5.2xlarge      br_privileged-20220525160725365900000001   True    2022-11-12T11:06:45Z
@@ -71,7 +71,7 @@ ip-10-0-119-000.eu-central-1.compute.internal   m5.2xlarge      br_privileged-20
 ip-10-0-124-000.eu-central-1.compute.internal   m5.large        br_default-20220525160725393100000003      True    2022-10-28T03:56:19Z
 ...
 </code></pre><p>The above command prints instance types and node groups. More data is injected by AWS as a node label. You can decide what to pull by picking it from the <code>kubectl describe node</code> output:</p>
-<pre tabindex="0"><code>Name:               ip-10-0-116-000.eu-central-1.compute.internal
+<pre><code>Name:               ip-10-0-116-000.eu-central-1.compute.internal
 Roles:              &lt;none&gt;
 Labels:             beta.kubernetes.io/arch=amd64
                     beta.kubernetes.io/instance-type=m5.large
@@ -124,12 +124,24 @@ Labels:             beta.kubernetes.io/arch=amd64
 
             
                 
+                    <p>Other things learnt about <a href="https://til.flagzeta.org/tags/kubectl/">kubectl</a>:</p>
+                    <ul>
+                    
+                        <li><a href="/posts/that-you-can-use-kubectl-to-viewpatch-argocd-running-parameters/">That you can use kubectl to view/patch ArgoCD running parameters</a></li>
+                    
+                    </ul>
+                    
+                        
+                    
+                
 
             
 
         
 
         
+        
+            <p>Jump to the next TIL using the right cursor key.</p>
         
         
     </footer>
@@ -140,6 +152,8 @@ Labels:             beta.kubernetes.io/arch=amd64
     <script>
         
 
+        
+            Mousetrap.bind("right", function() { window.location.replace("\/posts\/that-you-can-use-kubectl-to-viewpatch-argocd-running-parameters\/"); })
         
     </script>
 
