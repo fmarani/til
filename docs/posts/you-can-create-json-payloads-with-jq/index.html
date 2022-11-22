@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="
+    JQ can be used to create JSON objects of a certain shape, with the help of a few command line options. ...
+">
+
+        <link rel="shortcut icon" href="https://til.flagzeta.org/favicon.ico">
+
+        
+            
+
+        
+        <link rel="stylesheet" href="https://til.flagzeta.org/css/main.min.css">
+
+        
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://til.flagzeta.org/posts/you-can-create-json-payloads-with-jq/" />
+<meta property="og:title" content="TIL You can create JSON payloads with JQ — Federico Marani" />
+<meta property="og:description" content="JQ can be used to create JSON objects of a certain shape, with the help of a few command line options. [Reading time: 1 minute]" />
+
+
+<meta property="og:image" content="https://i.imgur.com/buBLoi9.png" />
+
+
+        <title>
+    TIL You can create JSON payloads with JQ — Federico Marani
+</title>
+
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4500T4RE03"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {dataLayer.push(arguments); }
+
+            
+            window['ga-disable-G-00'] = location.hostname != "til.flagzeta.org"
+            gtag('js', new Date());
+            gtag('config', 'G-00');
+        </script>
+
+    </head>
+
+    <body>
+        
+            <header id="banner">
+                <h2><a href="https://til.flagzeta.org/">Today I Learnt...</a></h2>
+            </header>
+        
+
+        <main id="content">
+            
+    <article>
+        <header id="post-header">
+            <div id="date_sentence">
+                On <time>November 22th, 2022</time>, <a href="https://flagzeta.org">I</a> learnt ...
+            </div>
+            <h1>You can create JSON payloads with JQ</h1>
+        </header><p><a href="https://stedolan.github.io/jq/">JQ</a> can be used to create JSON objects of a certain shape, with the help of a few command line options.</p>
+<p>You can use <code>--argjson</code> to load JSON objects into variables that can then be referenced by <code>$name</code>. Here&rsquo;s an example:</p>
+<pre><code>&gt; jq -n --argjson vars '[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]' '{&quot;vars&quot;: $vars}'
+{
+  &quot;vars&quot;: [
+    &quot;a&quot;,
+    &quot;b&quot;,
+    &quot;c&quot;
+  ]
+}
+</code></pre><p>(The <code>-n</code> option is to avoid <code>jq</code> attempting to read files as input)</p>
+<p>Similarly, you can use the option <code>--slurpfile</code> to load a json file in a variable (arrays only):</p>
+<pre><code>&gt; cat vars.json 
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+
+&gt; jq -n --slurpfile vars vars.json '{&quot;vars&quot;: $vars}'
+{
+  &quot;vars&quot;: [
+    [
+      &quot;a&quot;,
+      &quot;b&quot;,
+      &quot;c&quot;
+    ]
+  ]
+}
+</code></pre><p>All this can be extended to manipulate the keys too. Here&rsquo;s an example (written in fish shell)</p>
+<pre><code>&gt; cat vars.json
+{
+  &quot;key1&quot;: &quot;val1&quot;
+}
+
+&gt; set vars (cat vars.json)
+&gt; jq -n --argjson vars &quot;$vars&quot; '{&quot;key2&quot;: &quot;val2&quot;} + $vars'
+{
+  &quot;key2&quot;: &quot;val2&quot;,
+  &quot;key1&quot;: &quot;val1&quot;
+}
+</code></pre><p>Or create a simple key override system:</p>
+<pre><code>&gt; cat vars.json
+{
+  &quot;key2&quot;: &quot;val1&quot;
+}
+
+&gt; set vars (cat vars.json)
+&gt; jq -n --argjson vars &quot;$vars&quot; '{&quot;key2&quot;: &quot;val2&quot;} + $vars'
+{
+  &quot;key2&quot;: &quot;val1&quot;
+}
+
+&gt; jq -n --argjson vars &quot;$vars&quot; '$vars + {&quot;key2&quot;: &quot;val2&quot;}'
+{
+  &quot;key2&quot;: &quot;val2&quot;
+}
+</code></pre></article>
+
+        </main>
+
+        
+    <footer id="footer">
+        
+        
+
+        
+
+            
+
+            
+                
+
+            
+
+        
+
+        
+            <p>Jump to the previous TIL using the left cursor key.</p>
+        
+        
+        
+    </footer>
+
+
+        
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script>
+        
+            Mousetrap.bind("left", function() { window.location.replace("\/posts\/that-you-can-use-kubectl-to-viewpatch-argocd-running-parameters\/"); })
+        
+
+        
+    </script>
+
+    </body>
+</html>

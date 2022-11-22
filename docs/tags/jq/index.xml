@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jq - Today I Learnt...</title>
+    <link>https://til.flagzeta.org/tags/jq/</link>
+    <description>Recent content in jq on Today I Learnt...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Nov 2022 23:01:57 +0100</lastBuildDate>
+    
+	<atom:link href="https://til.flagzeta.org/tags/jq/index.xml" rel="self" type="application/rss+xml" />
+    
+
+    
+    <item>
+      <title>You can create JSON payloads with JQ</title>
+      <link>https://til.flagzeta.org/posts/you-can-create-json-payloads-with-jq/</link>
+      <pubDate>Tue, 22 Nov 2022 23:01:57 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/posts/you-can-create-json-payloads-with-jq/</guid>
+      <description>JQ can be used to create JSON objects of a certain shape, with the help of a few command line options.</description>
+    </item>
+    
+
+  </channel>
+</rss>

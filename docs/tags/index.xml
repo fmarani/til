@@ -6,11 +6,20 @@
     <description>Recent content in Tags on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Nov 2022 12:38:36 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 22 Nov 2022 23:01:57 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
 
+    
+    <item>
+      <title>jq</title>
+      <link>https://til.flagzeta.org/tags/jq/</link>
+      <pubDate>Tue, 22 Nov 2022 23:01:57 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/jq/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>argocd</title>

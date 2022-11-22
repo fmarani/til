@@ -6,11 +6,20 @@
     <description>Recent content in Posts on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Nov 2022 12:38:36 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 22 Nov 2022 23:01:57 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
 
+    
+    <item>
+      <title>You can create JSON payloads with JQ</title>
+      <link>https://til.flagzeta.org/posts/you-can-create-json-payloads-with-jq/</link>
+      <pubDate>Tue, 22 Nov 2022 23:01:57 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/posts/you-can-create-json-payloads-with-jq/</guid>
+      <description>JQ can be used to create JSON objects of a certain shape, with the help of a few command line options.</description>
+    </item>
     
     <item>
       <title>That you can use kubectl to view/patch ArgoCD running parameters</title>
