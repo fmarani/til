@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="
+    Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed. ...
+">
+
+        <link rel="shortcut icon" href="https://til.flagzeta.org/favicon.ico">
+
+        
+            
+
+        
+        <link rel="stylesheet" href="https://til.flagzeta.org/css/main.min.css">
+
+        
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/" />
+<meta property="og:title" content="TIL That you can impersonate pods in K8s — Federico Marani" />
+<meta property="og:description" content="Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed. [Reading time: 1 minute]" />
+
+
+<meta property="og:image" content="https://i.imgur.com/buBLoi9.png" />
+
+
+        <title>
+    TIL That you can impersonate pods in K8s — Federico Marani
+</title>
+
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4500T4RE03"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {dataLayer.push(arguments); }
+
+            
+            window['ga-disable-G-00'] = location.hostname != "til.flagzeta.org"
+            gtag('js', new Date());
+            gtag('config', 'G-00');
+        </script>
+
+    </head>
+
+    <body>
+        
+            <header id="banner">
+                <h2><a href="https://til.flagzeta.org/">Today I Learnt...</a></h2>
+            </header>
+        
+
+        <main id="content">
+            
+    <article>
+        <header id="post-header">
+            <div id="date_sentence">
+                On <time>January 1th, 0001</time>, <a href="https://flagzeta.org">I</a> learnt ...
+            </div>
+            <h1>That you can impersonate pods in K8s</h1>
+        </header><p>Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed.</p>
+<p>In Kubernetes every pod is automatically assigned a service account. This is similar to any group on K8s, with the notable difference that service accounts are namespaced while built-in groups are not. If you do not have one specified, it falls back to <code>default</code>.</p>
+<p>Let&rsquo;s take this simple deployment as example. It runs with the <code>system:serviceaccount:application:amazonmq-monitoring</code> service account.</p>
+<pre><code>&gt; k describe deployment amazonmq-monitoring 
+Name:                   amazonmq-monitoring
+Namespace:              application
+...
+Pod Template:
+  Service Account:  amazonmq-monitoring
+...
+</code></pre><p>To connect to the cluster API to read/write specific bits of data that only this serviceaccount is allowed to (via some RBAC rules) you can combine two tools: kubectl proxy and user impersonation.</p>
+<p><code>kubectl proxy</code> allows you to have a local proxy that forwards unauthenticated HTTP calls to a remote cluster, taking care of the authentication.</p>
+<p>User impersonation is a feature that allows, post authentication, to change the acting user (or group) to something else. This is only possible if impersonation is allowed explicitly (or if your user is part of the <code>system:masters</code> group).</p>
+<p>You combine the two features with <code>kubectl proxy --as system:serviceaccount:&lt;namespace&gt;:&lt;serviceaccount&gt;</code>:</p>
+<pre><code>&gt; k proxy --as system:serviceaccount:application:amazonmq-monitoring
+Starting to serve on 127.0.0.1:8001
+...
+</code></pre></article>
+
+        </main>
+
+        
+    <footer id="footer">
+        
+        
+
+        
+
+            
+
+            
+                
+                    <p>Other things learnt about <a href="https://til.flagzeta.org/tags/kubectl/">kubectl</a>:</p>
+                    <ul>
+                    
+                        <li><a href="/posts/that-you-can-use-kubectl-to-viewpatch-argocd-running-parameters/">That you can use kubectl to view/patch ArgoCD running parameters</a></li>
+                    
+                        <li><a href="/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/">How to include AWS-specific info when using kubectl get nodes</a></li>
+                    
+                    </ul>
+                    
+                        
+                    
+                        
+                    
+                
+
+            
+
+        
+
+            
+
+            
+                
+
+                <p>Other things learnt about <a href="https://til.flagzeta.org/tags/kubernetes/">kubernetes</a>:</p>
+                <ul>
+                    
+                    
+                </ul>
+            
+
+        
+
+            
+
+            
+                
+
+                <p>Other things learnt about <a href="https://til.flagzeta.org/tags/rbac/">rbac</a>:</p>
+                <ul>
+                    
+                    
+                </ul>
+            
+
+        
+
+            
+
+            
+                
+
+                <p>Other things learnt about <a href="https://til.flagzeta.org/tags/impersonation/">impersonation</a>:</p>
+                <ul>
+                    
+                    
+                </ul>
+            
+
+        
+
+        
+        
+            <p>Jump to the next TIL using the right cursor key.</p>
+        
+        
+    </footer>
+
+
+        
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script>
+        
+
+        
+            Mousetrap.bind("right", function() { window.location.replace("\/posts\/how-to-include-aws-info-when-using-kubectl-get-nodes\/"); })
+        
+    </script>
+
+    </body>
+</html>

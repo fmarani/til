@@ -36,5 +36,11 @@
     <lastmod>2022-11-12T16:02:19+01:00</lastmod>
   </url><url>
     <loc>https://til.flagzeta.org/categories/</loc>
+  </url><url>
+    <loc>https://til.flagzeta.org/tags/impersonation/</loc>
+  </url><url>
+    <loc>https://til.flagzeta.org/tags/rbac/</loc>
+  </url><url>
+    <loc>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</loc>
   </url>
 </urlset>
