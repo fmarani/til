@@ -20,7 +20,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://til.flagzeta.org/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/" />
 <meta property="og:title" content="TIL How to include AWS-specific info when using kubectl get nodes — Federico Marani" />
-<meta property="og:description" content="The standard configuration when using kubectl get nodes is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. [Reading time: 1 minute]" />
+<meta property="og:description" content="The standard configuration when using kubectl get nodes is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. [Reading time: 2 minutes]" />
 
 
 <meta property="og:image" content="https://i.imgur.com/buBLoi9.png" />
@@ -59,10 +59,11 @@
                 On <time>November 12th, 2022</time>, <a href="https://flagzeta.org">I</a> learnt ...
             </div>
             <h1>How to include AWS-specific info when using kubectl get nodes</h1>
-        </header><p>The standard configuration when using <code>kubectl get nodes</code> is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using. At our work we are big users of AWS, and we are running many EKS clusters. Clusters with multiple nodegroups, each one with different launch template which brings nodes up with different security groups attached.</p>
-<p>Sometimes it is difficult to print all this information. <code>kubectl</code> has a <code>custom-columns</code> output that is helpful in the case you want to print AWS specific information in the table view. Here&rsquo;s an example:</p>
+        </header><p>The standard configuration when using <code>kubectl get nodes</code> is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using.</p>
+<p>At work we are big users of AWS, and we are running many EKS clusters. Clusters with multiple nodegroups, each one with different launch templates which brings nodes up with different security groups attached.</p>
+<p>Sometimes it is difficult to print all this information. <code>kubectl</code> has a <code>custom-columns</code> output that is helpful in the case you want to print AWS specific information. Here&rsquo;s an example:</p>
 <pre><code>&gt; k get nodes -o custom-columns=NAME:.metadata.name,INSTANCE_TYPE:&quot;.metadata.labels.node\.kubernetes\.io/instance-type&quot;,EKS_NODEGROUP:&quot;.metadata.labels.eks\.amazonaws\.com/nodegroup&quot;,READY:&quot;.status.conditions[?(@.reason=='KubeletReady')].status&quot;,CREATED_AT:&quot;.metadata.creationTimestamp&quot;
-Kubeconfig user entry is using deprecated API version client.authentication.k8s.io/v1alpha1. Run 'aws eks update-kubeconfig' to update.
+
 NAME                                            INSTANCE_TYPE   EKS_NODEGROUP                              READY   CREATED_AT
 ip-10-0-115-000.eu-central-1.compute.internal   m5.2xlarge      br_privileged-20220525160725365900000001   True    2022-11-12T11:06:45Z
 ip-10-0-116-000.eu-central-1.compute.internal   m5.large        br_default-20220525160725393100000003      True    2022-11-07T10:31:33Z
@@ -90,6 +91,18 @@ Labels:             beta.kubernetes.io/arch=amd64
                     node.kubernetes.io/instance-type=m5.large
                     topology.kubernetes.io/region=eu-central-1
                     topology.kubernetes.io/zone=eu-central-1a
+...
+</code></pre><p>In the case of AWS, the node name is not particularly useful. You can change it for the instance id:</p>
+<pre><code>&gt; k get nodes -o custom-columns=INSTANCE_ID:.spec.providerID,INSTANCE_TYPE:&quot;.metadata.labels.node\.kubernetes\.io/instance-type&quot;,EKS_NODEGROUP:&quot;.metadata.labels.eks\.amazonaws\.co
+m/nodegroup&quot;,READY:&quot;.status.conditions[?(@.reason=='KubeletReady')].status&quot;,CREATED_AT:&quot;.metadata.creationTimestamp&quot;
+Kubeconfig user entry is using deprecated API version client.authentication.k8s.io/v1alpha1. Run 'aws eks update-kubeconfig' to update.
+INSTANCE_ID                                  INSTANCE_TYPE   EKS_NODEGROUP                              READY   CREATED_AT
+aws:///ap-northeast-1a/i-09603471464edb7d4   m5.2xlarge      br_privileged-20220906113602961400000001   True    2022-11-25T03:33:23Z
+aws:///ap-northeast-1a/i-0926e1e0ab36e7d29   m5.large        br_default-20220808183837971200000013      True    2022-11-21T11:15:26Z
+aws:///ap-northeast-1a/i-070e1e9afb1c5e5e8   m5.large        br_default-20220808183837971200000013      True    2022-10-28T03:52:51Z
+aws:///ap-northeast-1a/i-0d2a323d4fa70b08d   m5.large        br_default-20220808183837971200000013      True    2022-10-27T12:46:56Z
+aws:///ap-northeast-1a/i-0e8404aea87c57624   m5.2xlarge      br_privileged-20220906113602961400000001   True    2022-11-25T10:55:28Z
+aws:///ap-northeast-1a/i-04a0f5e5edfd58374   m5.2xlarge      br_privileged-20220906113602961400000001   True    2022-11-25T10:16:36Z
 ...
 </code></pre></article>
 
