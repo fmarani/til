@@ -6,11 +6,20 @@
     <description>Recent content in kubernetes on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Nov 2022 16:02:19 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 25 Nov 2022 10:29:06 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
 
+    
+    <item>
+      <title>That you can impersonate pods in K8s</title>
+      <link>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</link>
+      <pubDate>Fri, 25 Nov 2022 10:29:06 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</guid>
+      <description>Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed.</description>
+    </item>
     
     <item>
       <title>How to include AWS-specific info when using kubectl get nodes</title>
@@ -19,15 +28,6 @@
       
       <guid>https://til.flagzeta.org/posts/how-to-include-aws-info-when-using-kubectl-get-nodes/</guid>
       <description>The standard configuration when using kubectl get nodes is meant to be working for any cluster, therefore does not include any specific information about the K8s distribution you are using.</description>
-    </item>
-    
-    <item>
-      <title>That you can impersonate pods in K8s</title>
-      <link>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</guid>
-      <description>Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed.</description>
     </item>
     
 

@@ -6,6 +6,7 @@
     <description>Recent content in impersonation on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Fri, 25 Nov 2022 10:29:06 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/tags/impersonation/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>That you can impersonate pods in K8s</title>
       <link>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Nov 2022 10:29:06 +0100</pubDate>
       
       <guid>https://til.flagzeta.org/posts/that-you-can-impersonate-pods-in-k8s/</guid>
       <description>Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed.</description>

@@ -1,6 +1,6 @@
 ---
 title: "That you can impersonate pods in K8s"
-Tate: "2022-11-25T10:29:06+01:00"
+Date: "2022-11-25T10:29:06+01:00"
 tags: ["kubectl", "kubernetes", "rbac", "impersonation"]
 ---
 Useful feature when you are developing against a cluster API is to act as the pod where your feature will be deployed.

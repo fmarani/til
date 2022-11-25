@@ -6,11 +6,47 @@
     <description>Recent content in Tags on Today I Learnt...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Nov 2022 23:01:57 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 25 Nov 2022 10:29:06 +0100</lastBuildDate>
     
 	<atom:link href="https://til.flagzeta.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
 
+    
+    <item>
+      <title>impersonation</title>
+      <link>https://til.flagzeta.org/tags/impersonation/</link>
+      <pubDate>Fri, 25 Nov 2022 10:29:06 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/impersonation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl</title>
+      <link>https://til.flagzeta.org/tags/kubectl/</link>
+      <pubDate>Fri, 25 Nov 2022 10:29:06 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://til.flagzeta.org/tags/kubernetes/</link>
+      <pubDate>Fri, 25 Nov 2022 10:29:06 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rbac</title>
+      <link>https://til.flagzeta.org/tags/rbac/</link>
+      <pubDate>Fri, 25 Nov 2022 10:29:06 +0100</pubDate>
+      
+      <guid>https://til.flagzeta.org/tags/rbac/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>jq</title>
@@ -31,47 +67,11 @@
     </item>
     
     <item>
-      <title>kubectl</title>
-      <link>https://til.flagzeta.org/tags/kubectl/</link>
-      <pubDate>Wed, 16 Nov 2022 12:38:36 +0100</pubDate>
-      
-      <guid>https://til.flagzeta.org/tags/kubectl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>eks</title>
       <link>https://til.flagzeta.org/tags/eks/</link>
       <pubDate>Sat, 12 Nov 2022 16:02:19 +0100</pubDate>
       
       <guid>https://til.flagzeta.org/tags/eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://til.flagzeta.org/tags/kubernetes/</link>
-      <pubDate>Sat, 12 Nov 2022 16:02:19 +0100</pubDate>
-      
-      <guid>https://til.flagzeta.org/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>impersonation</title>
-      <link>https://til.flagzeta.org/tags/impersonation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://til.flagzeta.org/tags/impersonation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rbac</title>
-      <link>https://til.flagzeta.org/tags/rbac/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://til.flagzeta.org/tags/rbac/</guid>
       <description></description>
     </item>
     
